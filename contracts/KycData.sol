@@ -66,4 +66,5 @@ pragma solidity ^0.8.10;
     require(isVerified[_aadharNumber],"Customer isn't verified yet");
     return verifier[_aadharNumber].dataAddedBy;
  }
+ 
 }
