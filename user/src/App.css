@@ -1,0 +1,130 @@
+:root {
+  --dark-blue: rgb(0, 0, 70);
+  --sky-blue: rgb(28, 181, 224);
+  --bg-grad: linear-gradient(119.54deg, var(--dark-blue) 0%, var(--sky-blue) 100%);
+  --bg-img-grad: linear-gradient(119.54deg, var(--dark-blue) 0%, var(--sky-blue) 100%);
+  --black: #0A243F;
+  --light-grey: #6B7B8A;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--black);
+  width: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  max-width: 280px;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-line {
+  background: var(--bg-grad);
+  margin-right: -1.05rem;
+  margin-left: -1rem;
+  margin-top: -0.6rem;
+  height: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  color: var(--light-grey);
+  font-size: 0.8em;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 0.2rem 0.2rem;
+  border-bottom: 1px solid var(--dark-blue);
+  font-size: 1.15em;
+  color: var(--black);
+}
+
+input:focus {
+  border-bottom: 2px solid var(--dark-blue);
+}
+
+button {
+  border: none;
+  outline: none;
+  background: var(--bg-grad);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.6em;
+  width: 100%;
+  font-size: 1em;
+}
+
+.divider {
+  border-top: 1px solid #ccc;
+}
+
+footer {
+  background: var(--dark-blue);
+  padding: 0.6rem;
+  font-size: 0.8em;
+  color: white;
+}
