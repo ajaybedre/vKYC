@@ -7,7 +7,7 @@ export default function Login() {
   const [aadhaarNumber, setAadhaarNumber] = React.useState("");
   const [OTP, setOTP] = React.useState("");
 
-  const [currentStep, setCurrentStep] = React.useState(2);
+  const [currentStep, setCurrentStep] = React.useState(1);
 
   const handleAadhaarNumberChange = (e) => {
     setAadhaarNumber(e.target.value);
@@ -70,7 +70,7 @@ export default function Login() {
             ></input>
             <button
               className={
-                "btn mt-4 " + (currentStep === 2 ? "btn-gradient" : "")
+                "btn mt-4 btn-gradient"
               }
               onClick={() => setCurrentStep(3)}
             >
@@ -85,12 +85,6 @@ export default function Login() {
                 <div className="bank-option">State Bank of India</div>
                 <div className="bank-option">HDFC Bank</div>
                 <div className="bank-option">ICICI Bank</div>
-                <div className="bank-option">Bank of Baroda</div>
-                <div className="bank-option">Axis Bank</div>
-                <div className="bank-option">Yes Bank</div>
-                <div className="bank-option">Punjab National Bank</div>
-                <div className="bank-option">Union Bank of India</div>
-                <div className="bank-option">Canara Bank</div>
             </>
         )}
       </div>

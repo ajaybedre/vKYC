@@ -7,6 +7,7 @@ export default function Home() {
     return (
         <div className="main">
             <Card title="Login" handleClick={() => navigate('/login')}/>
+            <Card title="Check Status" handleClick={() => navigate('/login')}/>
         </div>
     )
 }
