@@ -1,21 +1,36 @@
 import React from "react";
 import Stepper from "./Stepper";
+import { useAppContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
-const steps = 3;
+const steps = 4;
+
+const banks = [
+  "State Bank of India",
+  "HDFC Bank",
+  "ICICI Bank",
+];
 
 export default function Login() {
-  const [aadhaarNumber, setAadhaarNumber] = React.useState("");
+  const {aadhaarNumber, setAadhaarNumber, bank, setBank} = useAppContext();
   const [OTP, setOTP] = React.useState("");
 
   const [currentStep, setCurrentStep] = React.useState(1);
+
+  const navigate = useNavigate();
 
   const handleAadhaarNumberChange = (e) => {
     setAadhaarNumber(e.target.value);
   };
 
+  const handleAadhaarSubmit = () => {
+    setCurrentStep(2);
+  };
+
   const handleOTPChange = (e) => {
     setOTP(e.target.value);
   };
+
 
   function getCardTitle() {
     switch (currentStep) {
@@ -25,6 +40,8 @@ export default function Login() {
         return "Enter OTP";
       case 3:
         return "Select your bank";
+      case 4:
+        return "Enter your account details";
       default:
         return "";
     }
@@ -48,11 +65,12 @@ export default function Login() {
             <input
               placeholder="Enter Aadhaar"
               type="number"
-              onClick={handleAadhaarNumberChange}
+              value={aadhaarNumber}
+              onChange={handleAadhaarNumberChange}
             ></input>
             <button
               className="btn mt-4 btn-gradient"
-              onClick={() => setCurrentStep(2)}
+              onClick={handleAadhaarSubmit}
             >
               Send OTP
             </button>
@@ -65,8 +83,8 @@ export default function Login() {
             <input
               placeholder="Enter OTP"
               type="number"
-              onClick={handleOTPChange}
-              disabled={currentStep !== 2}
+              value={OTP}
+              onChange={handleOTPChange}
             ></input>
             <button
               className={
@@ -82,10 +100,22 @@ export default function Login() {
         {/* 3 */}
         {currentStep === 3 && (
             <>
-                <div className="bank-option">State Bank of India</div>
-                <div className="bank-option">HDFC Bank</div>
-                <div className="bank-option">ICICI Bank</div>
+              {banks.map((bank, i) => (
+                <div className="bank-option" key={i} onClick={() => {
+                  setBank(bank);
+                  setCurrentStep(4);
+                }}>{bank}</div>
+              ))}
             </>
+        )}
+
+        {/* 4 */}
+        {currentStep === 4 && (
+          <>
+            <input placeholder="Enter Username"></input>
+            <input placeholder="Enter Password" className="mt-8" type="password"></input>
+            <button className="btn mt-4 btn-gradient" onClick={() => navigate('/dashboard')}>Submit</button>
+          </>
         )}
       </div>
     </div>
