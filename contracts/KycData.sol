@@ -50,7 +50,7 @@ contract KycData{
 
 
  //to retrive data back
-   function getkycData(uint _aadharNumber) public view returns(kycData memory){
+   function getkycData(uint _aadharNumber) public view  returns(kycData memory){
 
       require(isVerified[_aadharNumber],"Please do KYC!");
       return customers[_aadharNumber];
