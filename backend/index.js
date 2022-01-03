@@ -28,17 +28,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  ipAddress: {
-    type: String,
-    required: true,
-  },
   selfieHash: {
     type: String,
     required: true,
   },
+  ipAddress: {
+    type: String,
+  },
   location: {
     type: String,
-    required: true,
   },
   isKYCVerified: {
     type: Boolean,
